@@ -1,6 +1,14 @@
 # Admin in Angular 2
 
-Admin in angular 2 (Consume web services, pagination, login & logout, export to CSV, export to pdf, User listing, Update user profile)
+Admin in angular 2 with following functionalities:
+
+1) User login & logout
+2) Consume web services
+3) User listing
+4) Update user profile
+5) Pagination
+6) Export to CSV
+6) Export to PDF
 
 
 
