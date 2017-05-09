@@ -1,0 +1,50 @@
+  <div id="content-header">
+    <div id="breadcrumb"> <a [routerLink]='["/dashboard"]' title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> <a [routerLink]='["/manage-users"]' class="current">Users</a> </div>
+   
+  </div>
+  <div class="container-fluid">
+   
+    <div class="row-fluid">
+      <div class="span12">
+      
+     
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
+            <h5>Manage Users</h5>
+          </div>
+          <div class="widget-content nopadding">
+            <table class="table table-bordered table-condensed ">
+            <thead>
+               <th>Item</th>
+               <th>Body</th>
+            </thead>
+            <tbody>
+               <tr *ngFor="let item of pagedItems">
+                  <td>{{item.first_name}}</td>
+                  <td>{{item.last_name}}</td>
+               </tr>
+            </tbody>
+         </table>
+            <!-- pager -->
+            <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                <li [ngClass]="{disabled:pager.currentPage === 1}">
+                    <a (click)="setPage(1)">First</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === 1}">
+                    <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+                </li>
+                <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                    <a (click)="setPage(page)">{{page}}</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                    <a (click)="setPage(pager.currentPage + 1)">Next</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                    <a (click)="setPage(pager.totalPages)">Last</a>
+                </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

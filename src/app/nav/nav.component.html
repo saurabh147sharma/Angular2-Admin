@@ -1,0 +1,56 @@
+<!--Header-part-->
+<div id="header">
+  <h1><a [routerLink]='["/dashboard"]'> Admin</a></h1>
+</div>
+<!--close-Header-part--> 
+
+
+<!--top-Header-menu-->
+<div id="user-nav" class="navbar navbar-inverse">
+  <ul class="nav">
+    <li  class="dropdown" id="profile-messages" ><a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle"><i class="icon icon-user"></i>  <span class="text">Welcome User</span><b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li><a [routerLink]='["/edit-user"]'><i class="icon-user"></i> My Profile</a></li>
+        <li class="divider"></li>
+        <li><a href="#"><i class="icon-check"></i> Change Password</a></li>
+        <li class="divider"></li>
+        <li><a (click)="logoutUser()" style="cursor: pointer;"><i class="icon-key"></i> Log Out</a></li>
+      </ul>
+    </li>
+    <li class=""><a title="" href="#"><i class="icon icon-cog"></i> <span class="text">Settings</span></a></li>
+    <li class=""><a title="" (click)="logoutUser()" style="cursor: pointer;"><i class="icon icon-share-alt"></i> <span class="text">Logout</span></a></li>
+  </ul>
+</div>
+<!--close-top-Header-menu-->
+
+<!--sidebar-menu-->
+<div id="sidebar"><a [routerLink]='["/dashboard"]' class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+  <ul>
+    <li class="active"><a [routerLink]='["/dashboard"]'><i class="icon icon-home"></i> <span>Dashboard</span></a> </li>
+    <li><a [routerLink]='["/manage-users"]'><i class="icon icon-th"></i> <span>Manage Users</span></a></li>
+    <li><a [routerLink]='["/pdf"]'><i class="icon icon-th"></i> <span>PDF Report</span></a></li>
+    <li><a [routerLink]='["/csv"]'><i class="icon icon-th"></i> <span>CSV Report</span></a></li>
+    
+  </ul>
+</div>
+<!--sidebar-menu-->
+
+<!--main-container-part-->
+<div id="content">
+
+<router-outlet></router-outlet>
+
+
+
+
+</div>
+
+<!--end-main-container-part-->
+
+<!--Footer-part-->
+
+<div class="row-fluid">
+  <div id="footer" class="span12"> 2017 &copy; Coding 4 Developers.</div>
+</div>
+
+<!--end-Footer-part-->
