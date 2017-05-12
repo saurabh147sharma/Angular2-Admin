@@ -7,6 +7,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { LoginComponent } from './login/login.component';
 import { PdfComponent } from './pdf/pdf.component';
 import { CsvComponent } from './csv/csv.component';
+import { FileComponent } from './file/file.component';
 import { NavComponent } from './nav/nav.component';
 
 import { AuthGuard } from './_guards/auth.guard';
@@ -51,6 +52,13 @@ const appRoutes: Routes = [
     {
       path: '',
       component: CsvComponent
+    }
+  ] },
+
+  { path: 'file', component: NavComponent,canActivate: [AuthGuard], children : [
+    {
+      path: '',
+      component: FileComponent
     }
   ] }
   

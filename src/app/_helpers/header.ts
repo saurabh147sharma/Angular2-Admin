@@ -11,5 +11,16 @@ export const header = Object.freeze({
         }
         headers.append('Content-Type', 'application/json');
          return new RequestOptions({ headers: headers });
+    },
+
+formHead() {
+        // create authorization header with token
+        let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        let headers = new Headers();
+        if (currentUser && currentUser.result.userDetails.access_token) {
+            headers.append('authToken', currentUser.result.userDetails.access_token );
+        }
+         return new RequestOptions({ headers: headers });
     }
+
  });

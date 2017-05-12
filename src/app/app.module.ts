@@ -6,7 +6,7 @@ import { routing } from './app.routing';
 
 import { AlertComponent } from './_directives/index';
 import { AuthGuard } from './_guards/index';
-import { AlertService, AuthenticationService, UserService, PagerService } from './_services/index';
+import { AlertService, AuthenticationService, UserService, PagerService, FileService } from './_services/index';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -16,6 +16,7 @@ import { UserComponent } from './user/user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { PdfComponent } from './pdf/pdf.component';
 import { CsvComponent } from './csv/csv.component';
+import { FileComponent } from './file/file.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CsvComponent } from './csv/csv.component';
     UserComponent,
     UserDetailsComponent,
     PdfComponent,
-    CsvComponent
+    CsvComponent,
+    FileComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +43,7 @@ import { CsvComponent } from './csv/csv.component';
         AlertService,
         AuthenticationService,
         UserService,
+        FileService,
         BaseRequestOptions,
         PagerService
   ],
