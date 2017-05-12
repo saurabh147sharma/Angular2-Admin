@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Http, RequestOptions, Headers, Response } from '@angular/http';  
 import { Observable } from 'rxjs/Rx'; 
 import { FileService } from '../_services/index';
 
@@ -12,7 +11,7 @@ export class FileComponent implements OnInit {
 
   private isUploadBtn: boolean = true;  
   private fileUploadMsg: string;
-constructor(private http: Http,private fileService: FileService) {  
+constructor(private fileService: FileService) {  
 } 
 
 //file upload event  
