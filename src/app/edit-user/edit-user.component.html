@@ -1,5 +1,5 @@
 <div id="content-header">
-    <div id="breadcrumb"> <a [routerLink]='["/dashboard"]' title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> User Details </div>
+    <div id="breadcrumb"> <a [routerLink]='["/dashboard"]' title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a><a [routerLink]='["/manage-users"]' title="Go to Users" class="tip-bottom"> Users</a> User Details </div>
    
   </div>
   <div class="container-fluid"><hr>
@@ -9,7 +9,7 @@
           <div class="widget-title"> <span class="icon"> <i class="icon-info-sign"></i> </span>
             <h5>Edit User Details</h5>
           </div>
-          <span class="text-success" style="padding: 20%;">{{updateMsg}}</span>
+          <span class="text-success">{{updateMsg}}</span>
           <div class="widget-content nopadding">
             <form class="form-horizontal" [formGroup]="form" (ngSubmit)="updateUserDetails(form.value)">
               <div class="control-group">

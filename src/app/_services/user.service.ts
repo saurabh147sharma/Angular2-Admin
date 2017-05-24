@@ -34,7 +34,7 @@ export class UserService {
     }
 
 
-    delete(id: number) {
+    deleteUser(id: number) {
         return this.http.post(ConstantVariables.BASE_API_URL+'/delete', {"userId": id}, header.head()).map((response: Response) => response.json());
     }
 

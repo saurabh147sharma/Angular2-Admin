@@ -7,7 +7,7 @@
     <div class="row-fluid">
       <div class="span12">
       
-     
+    <span class="text-success"> {{deleteMsg}}</span>
         <div class="widget-box">
           <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
             <h5>Manage Users</h5>
@@ -23,10 +23,10 @@
                <th>Action</th>
             </thead>
             <tbody>
-               <tr *ngFor="let item of pagedItems">
+               <tr *ngFor="let item of pagedItems; let i = index;">
                   <td>{{item.first_name}}</td>
                   <td>{{item.last_name}}</td>
-                  <td><a [routerLink]="['/users', 'edit', item.id]"  class="icon-edit"> Edit</a> <a [routerLink]="['/users', 'delete', item.id]" class="icon-remove" style="margin-left:10%;">Delete</a></td>
+                  <td><a [routerLink]="['/users', 'edit', item.id]"  class="icon-edit"> Edit</a> <a (click)="deleteUser(item.id,i)" class="icon-remove" style="margin-left:10%;">Delete</a></td>
                </tr>
             </tbody>
          </table>

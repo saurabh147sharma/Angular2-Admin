@@ -23,6 +23,7 @@ export class UserComponent implements OnInit {
     form: FormGroup;
     itemCount : number=0;
     page: number=1;
+    deleteMsg: string = '';
   constructor(private http: Http,private pagerService: PagerService, private userService: UserService,  private fb: FormBuilder) { }
 
 
@@ -60,6 +61,20 @@ private loadAllUsers() {
 
     searchUser(first_name){
         this.setPage(this.page,first_name);
+    }
+
+    deleteUser(userId,index){
+this.userService.deleteUser(userId)
+            .subscribe(
+              data => {
+              if (data && data.success==1) {
+                  this.deleteMsg=data.message;
+                  this.pagedItems.splice(index, 1);
+                }
+                else if(data && data.success==0){
+                 this.deleteMsg=data.message;
+                }
+            });
     }
     
 }
