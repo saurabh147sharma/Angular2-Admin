@@ -28,7 +28,6 @@ private getUserDetails() {
     //debugger;
                 // set items to json response
                 this.userData = data.result.userDetails;
-                console.log(this.userData);
             }); 
     }
 

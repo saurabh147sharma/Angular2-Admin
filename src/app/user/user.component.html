@@ -11,12 +11,15 @@
         <div class="widget-box">
           <div class="widget-title"> <span class="icon"><i class="icon-th"></i></span>
             <h5>Manage Users</h5>
+<form class="form-horizontal" [formGroup]="form" style="float:right;">
+            <input type="text" placeholder="First Name" formControlName="first_name" (ngModelChange)="searchUser($event)">
+</form>
           </div>
           <div class="widget-content nopadding">
             <table class="table table-bordered table-condensed ">
             <thead>
-               <th>Item</th>
-               <th>Body</th>
+               <th>First Name</th>
+               <th>Last Name</th>
             </thead>
             <tbody>
                <tr *ngFor="let item of pagedItems">

@@ -9,8 +9,8 @@ import { User } from '../_models/index';
 export class UserService {
     constructor(private http: Http) { }
 
-    getAll() {
-        return this.http.post(ConstantVariables.BASE_API_URL+'/users',{}, header.head()).map((response: Response) => response.json());
+    getAll(first_name : string = null) {
+        return this.http.post(ConstantVariables.BASE_API_URL+'/users',{first_name:first_name}, header.head()).map((response: Response) => response.json());
     }
 
     getById(id: number) {
