@@ -29,6 +29,10 @@ export class UserService {
         return this.http.post(ConstantVariables.BASE_API_URL+'/update-user', user, header.head()).map((response: Response) => response.json());
     }
 
+    updateUserData(user: User) {
+        return this.http.post(ConstantVariables.BASE_API_URL+'/update-user-data', user, header.head()).map((response: Response) => response.json());
+    }
+
 
     delete(id: number) {
         return this.http.post(ConstantVariables.BASE_API_URL+'/delete', {"userId": id}, header.head()).map((response: Response) => response.json());

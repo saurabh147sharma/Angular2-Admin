@@ -26,7 +26,7 @@
                <tr *ngFor="let item of pagedItems">
                   <td>{{item.first_name}}</td>
                   <td>{{item.last_name}}</td>
-                  <td>Add Edit Delete</td>
+                  <td><a [routerLink]="['/users', 'edit', item.id]"  class="icon-edit"> Edit</a> <a [routerLink]="['/users', 'delete', item.id]" class="icon-remove" style="margin-left:10%;">Delete</a></td>
                </tr>
             </tbody>
          </table>

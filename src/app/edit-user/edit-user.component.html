@@ -1,0 +1,42 @@
+<div id="content-header">
+    <div id="breadcrumb"> <a [routerLink]='["/dashboard"]' title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a> User Details </div>
+   
+  </div>
+  <div class="container-fluid"><hr>
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="icon-info-sign"></i> </span>
+            <h5>Edit User Details</h5>
+          </div>
+          <span class="text-success" style="padding: 20%;">{{updateMsg}}</span>
+          <div class="widget-content nopadding">
+            <form class="form-horizontal" [formGroup]="form" (ngSubmit)="updateUserDetails(form.value)">
+              <div class="control-group">
+                <label class="control-label">First Name</label>
+                <div class="controls">
+                  <input type="text" formControlName="first_name"  [(ngModel)]="userData.first_name" required>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Last Name</label>
+                <div class="controls">
+                  <input type="text" formControlName="last_name"  [(ngModel)]="userData.last_name" required>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">User Name</label>
+                <div class="controls">
+                  <input type="text" [(ngModel)]="userData.user_name" formControlName="user_name" required >
+                </div>
+              </div>
+              <div class="form-actions">
+                <input type="submit" value="Update" [disabled]="!form.valid || !form.dirty" class="btn btn-success">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>

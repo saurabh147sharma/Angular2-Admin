@@ -17,6 +17,7 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { PdfComponent } from './pdf/pdf.component';
 import { CsvComponent } from './csv/csv.component';
 import { FileComponent } from './file/file.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FileComponent } from './file/file.component';
     UserDetailsComponent,
     PdfComponent,
     CsvComponent,
-    FileComponent
+    FileComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user/user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 import { LoginComponent } from './login/login.component';
 import { PdfComponent } from './pdf/pdf.component';
 import { CsvComponent } from './csv/csv.component';
@@ -38,6 +39,12 @@ const appRoutes: Routes = [
     {
       path: '',
       component: UserDetailsComponent
+    }
+  ] },
+  { path: 'users/edit/:id', component: NavComponent,canActivate: [AuthGuard], children : [
+    {
+      path: '',
+      component: EditUserComponent
     }
   ] },
 
