@@ -10,6 +10,7 @@ Admin in angular 2 with following functionalities:
 6) Export to CSV
 6) Export to PDF
 7) Upload file
+8) Delete user
 
 
 
