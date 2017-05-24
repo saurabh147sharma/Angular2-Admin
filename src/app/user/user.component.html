@@ -20,16 +20,18 @@
             <thead>
                <th>First Name</th>
                <th>Last Name</th>
+               <th>Action</th>
             </thead>
             <tbody>
                <tr *ngFor="let item of pagedItems">
                   <td>{{item.first_name}}</td>
                   <td>{{item.last_name}}</td>
+                  <td>Add Edit Delete</td>
                </tr>
             </tbody>
          </table>
             <!-- pager -->
-            <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+            <ul *ngIf="pager.pages && pager.pages.length" class="pagination" style="float:right;">
                 <li [ngClass]="{disabled:pager.currentPage === 1}">
                     <a (click)="setPage(1)">First</a>
                 </li>
@@ -43,11 +45,15 @@
                     <a (click)="setPage(pager.currentPage + 1)">Next</a>
                 </li>
                 <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
-                    <a (click)="setPage(pager.totalPages)">Last</a>
+                    <a (click)="setPage(this.pager.totalPages)">Last</a>
                 </li>
             </ul>
           </div>
+          
         </div>
+        
       </div>
     </div>
+    
   </div>
+  

@@ -21,6 +21,8 @@ export class UserComponent implements OnInit {
     // paged items
     pagedItems: any[];
     form: FormGroup;
+    itemCount : number=0;
+    page: number=1;
   constructor(private http: Http,private pagerService: PagerService, private userService: UserService,  private fb: FormBuilder) { }
 
 
@@ -29,46 +31,35 @@ export class UserComponent implements OnInit {
     this.buildForm();
   }
 private loadAllUsers() {
- this.userService.getAll()
-  .subscribe(data => {
-                // set items to json response
-                this.allItems = data.result.users;
-
-                // initialize to page 1
-                this.setPage(1);
-            }); 
+ this.setPage(1);
     }
  
  buildForm() {
     this.form = this.fb.group({
-      
       first_name: ['', Validators.required]
     });
   }
   
-    setPage(page: number) {
-        //alert(page);
-        if (page < 1 || page > this.pager.totalPages) {
-            return;
-        }
-
-        // get pager object from service
-        this.pager = this.pagerService.getPager(this.allItems.length, page);
-
-        // get current page of items
-        this.pagedItems = this.allItems.slice(this.pager.startIndex, this.pager.endIndex + 1);
+    setPage(page: number, first_name: string = '') {        
+        this.userService.getAll(first_name,page)
+            .subscribe(data => {
+                // set items to json response
+                this.allItems = data.result.users;
+                this.itemCount=data.result.usersCount;
+                 // get pager object from service
+                this.pager = this.pagerService.getPager(this.itemCount, page);
+                if (page < 1 || page > this.pager.totalPages) {
+                 return;
+                }
+                // get current page of items
+                this.pagedItems = this.allItems;
+            });
+        
     }
 
 
-    searchUser(formData){
-        this.userService.getAll(formData)
-  .subscribe(data => {
-                // set items to json response
-                this.allItems = data.result.users;
-
-                // initialize to page 1
-                this.setPage(1);
-            }); 
+    searchUser(first_name){
+        this.setPage(this.page,first_name);
     }
     
 }
